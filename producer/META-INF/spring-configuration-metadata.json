@@ -1,0 +1,32 @@
+{
+  "groups": [
+    {
+      "name": "data.producer",
+      "type": "com.test.producer.config.Config",
+      "sourceType": "com.test.producer.config.Config"
+    },
+    {
+      "name": "quartz-info",
+      "type": "com.test.producer.schedule.QuartzWork",
+      "sourceType": "com.test.producer.schedule.QuartzWork"
+    }
+  ],
+  "properties": [
+    {
+      "name": "data.producer.agent-id",
+      "type": "java.lang.String",
+      "sourceType": "com.test.producer.config.Config"
+    },
+    {
+      "name": "quartz-info.list",
+      "type": "java.util.List<com.test.producer.schedule.vo.ProducerSchedule>",
+      "sourceType": "com.test.producer.schedule.QuartzWork"
+    },
+    {
+      "name": "quartz-info.work",
+      "type": "java.lang.String",
+      "sourceType": "com.test.producer.schedule.QuartzWork"
+    }
+  ],
+  "hints": []
+}

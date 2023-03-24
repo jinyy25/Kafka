@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "data.consumer",
+      "type": "com.test.consumer.config.Config",
+      "sourceType": "com.test.consumer.config.Config"
+    }
+  ],
+  "properties": [
+    {
+      "name": "data.consumer.agent-id",
+      "type": "java.lang.String",
+      "sourceType": "com.test.consumer.config.Config"
+    }
+  ],
+  "hints": []
+}

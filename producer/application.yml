@@ -1,0 +1,73 @@
+#port부여
+server:
+  port: 8629
+
+#동적으로 Agent 사용  
+data: 
+  producer:
+    agentId: 
+
+#Spring Quartz/DB/View 설정
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp      
+  jdbc:    template:      fetch-size: 10000
+      max-rows: 10000
+  datasource:
+    driver-class-name: com.tmax.tibero.jdbc.TbDriver
+    url: jdbc:tibero:thin:@10.47.39.125:8629:DB_D_GMD
+    username: GMDMF 
+    password: gmdmf     
+    sql-script-encoding: UTF-8           
+  quartz:              
+    scheduler-name: QuartzScheduler
+    job-store-type: jdbc
+    jdbc:
+      initialize-schema: never
+    properties:
+      org:
+        quartz:
+          scheduler:
+          instanceName: JYDataScheduler
+          instanceId:
+          threadPool:
+            threadCount: 3
+          jobStore:
+            class: org.quartz.impl.jdbcjobstore.JobStoreTX
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+            tablePrefix: QRTZ_
+            useProperties: true
+            isClustered: true
+            clusterCheckinInterval: 20000 
+              
+#Camel/Kafka 설정      
+camel:
+  springboot:
+    main-run-controller: true
+    stream-caching-enabled: true
+    jmx-enabled: false
+    shutdown-timeout: 1
+  component:    kafka:
+      max-request-size: 10485760
+      brokers: 10.47.39.124:9092,10.47.39.67:9092,10.47.39.125:9092
+      shutdown-timeout: 1
+
+#Quartz Default로 실행       
+quartz-info:
+  list:
+    - scheduleName: com.test.producer.route.ATypeSendRoute
+      scheduleDesc: DescriptionA
+      triggerName: TriggerA
+      triggerDesc: AnonymousA
+      cron: 0/30 * * * * ?
+      
+    - scheduleName: com.test.producer.route.BTypeSendRoute
+      scheduleDesc: DescriptionB
+      triggerName: TriggerB
+      triggerDesc: AnonymousB
+      cron: 0 0/1 * * * ?
+          
+  work : SendWork
+    
