@@ -1,0 +1,31 @@
+##Agent 동적 적용
+#data:
+#  consumer:
+#    agentId:
+#
+##Spring DB설정
+#spring:
+#  jdbc:
+#    template:
+#      fetch-size: 10000
+#      max-rows: 10000
+#  datasource:
+#    driver-class-name: com.tmax.tibero.jdbc.TbDriver
+#    url: jdbc:tibero:thin:@10.47.39.125:8629:DB_D_GMD
+#    username: GMDMF
+#    password: gmdmf
+#    sql-script-encoding: UTF-8
+#
+##Camel/Kafka 설정
+#camel:
+#  springboot:
+#    main-run-controller: true
+#    stream-caching-enabled: true
+#    jmx-enabled: false
+#    shutdown-timeout: 1
+#  component:
+#    kafka:
+#      max-request-size: 10485760
+#      brokers: 10.47.39.124:9092,10.47.39.67:9092,10.47.39.125:9092
+#      shutdown-timeout: 1
+#

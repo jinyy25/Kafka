@@ -18,10 +18,23 @@ repositories {
 }
 
 dependencies {
+
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    implementation 'org.apache.camel:camel-core:3.20.0'
+    implementation 'org.apache.camel:camel-kafka:3.20.0'
+    implementation 'org.apache.camel.springboot:camel-sql-starter:3.20.0'
+    implementation 'org.apache.camel:camel-sql:3.20.0'
+    implementation 'org.apache.camel:camel-csv:3.20.0'
+    implementation 'org.quartz-scheduler:quartz:2.2.3'
+
+
+
 }
+
+
 
 tasks.named('test') {
     useJUnitPlatform()
